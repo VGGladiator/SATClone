@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital SAT Practice</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <header class="top-bar">
+        <div class="top-left">
+            <h1 class="section-title">Section 1, Module 1: Reading and Writing</h1>
+            <button class="directions-btn">Directions <i data-lucide="chevron-down" class="icon-small"></i></button>
+        </div>
+        <div class="top-center">
+            <div class="timer">31:44</div>
+            <button class="hide-timer-btn">Hide</button>
+        </div>
+        <div class="top-right">
+            <div class="ipad-status">
+                <span>64%</span>
+                <i data-lucide="battery-medium" class="battery-icon"></i>
+            </div>
+            <div class="right-icons">
+                <button class="icon-btn">
+                    <div class="icon-group">
+                        <i data-lucide="highlighter"></i>
+                        <i data-lucide="file-text"></i>
+                    </div>
+                    <span>Highlights & Notes</span>
+                </button>
+                <button class="icon-btn" style="margin-left: 12px;">
+                    <i data-lucide="more-vertical"></i>
+                    <span>More</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <div class="dashed-line-top"></div>
+        <main class="content-area">
+            <div class="left-pane">
+                <div class="passage">
+                    Although critics believed that customers would never agree to pay to pick their own produce on farms, such concerns didn't ______ Booker T. Whatley's efforts to promote the practice. Thanks in part to Whatley's determined advocacy, farms that allow visitors to pick their own apples, pumpkins, and other produce can be found throughout the United States.
+                </div>
+            </div>
+            
+            <div class="resizer">
+                <div class="resizer-handle">
+                    <i data-lucide="chevrons-left-right" class="handle-icon"></i>
+                </div>
+            </div>
+
+            <div class="right-pane">
+                <div class="question-header">
+                    <div class="qh-left">
+                        <span class="question-number">1</span>
+                        <button class="mark-review-btn">
+                            <i data-lucide="bookmark" class="icon-small"></i> Mark for Review
+                        </button>
+                    </div>
+                    <div class="qh-right">
+                        <button class="abc-strike-btn">
+                            <span>ABC</span>
+                            <div class="strike-line"></div>
+                        </button>
+                    </div>
+                </div>
+                <div class="dashed-line-question"></div>
+
+                <div class="question-text">
+                    Which choice completes the text with the most logical and precise word or phrase?
+                </div>
+
+                <div class="options-container">
+                    <label class="option">
+                        <div class="option-content">
+                            <span class="option-letter">A</span>
+                            <span class="option-text">enhance</span>
+                        </div>
+                        <button class="eliminate-btn">
+                            <span class="eliminate-letter">A</span>
+                            <div class="eliminate-strike"></div>
+                        </button>
+                    </label>
+
+                    <label class="option">
+                        <div class="option-content">
+                            <span class="option-letter">B</span>
+                            <span class="option-text">hinder</span>
+                        </div>
+                        <button class="eliminate-btn">
+                            <span class="eliminate-letter">B</span>
+                            <div class="eliminate-strike"></div>
+                        </button>
+                    </label>
+
+                    <label class="option">
+                        <div class="option-content">
+                            <span class="option-letter">C</span>
+                            <span class="option-text">misrepresent</span>
+                        </div>
+                        <button class="eliminate-btn">
+                            <span class="eliminate-letter">C</span>
+                            <div class="eliminate-strike"></div>
+                        </button>
+                    </label>
+
+                    <label class="option">
+                        <div class="option-content">
+                            <span class="option-letter">D</span>
+                            <span class="option-text">aggravate</span>
+                        </div>
+                        <button class="eliminate-btn">
+                            <span class="eliminate-letter">D</span>
+                            <div class="eliminate-strike"></div>
+                        </button>
+                    </label>
+                </div>
+            </div>
+        </main>
+        <div class="dashed-line-bottom"></div>
+    </div>
+
+    <footer class="bottom-bar">
+        <div class="bottom-left">Raghav Madhavan</div>
+        <div class="bottom-center">
+            <button class="question-nav-btn">Question 1 of 27 <i data-lucide="chevron-up" class="icon-small"></i></button>
+        </div>
+        <div class="bottom-right">
+            <button class="next-btn">Next</button>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
