@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital SAT Practice Test</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="practice-test.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     SCREEN: Intro
+══════════════════════════════════════════════════════════════ -->
+<div id="pt-intro-screen" class="pt-screen pt-intro">
+  <div class="pt-intro__card">
+    <div class="pt-intro__badge">Practice Test</div>
+    <h1 class="pt-intro__title">Digital SAT Practice Test</h1>
+    <p class="pt-intro__disclaimer">Original practice questions. Not affiliated with or endorsed by College Board.</p>
+
+    <div class="pt-intro__sections">
+      <div class="pt-intro__section-row">
+        <div class="pt-intro__section-num">1</div>
+        <div class="pt-intro__section-name">Reading and Writing — Module 1</div>
+        <div class="pt-intro__section-time">32 min · 8 questions</div>
+      </div>
+      <div class="pt-intro__section-row">
+        <div class="pt-intro__section-num">2</div>
+        <div class="pt-intro__section-name">Reading and Writing — Module 2</div>
+        <div class="pt-intro__section-time">32 min · 8 questions</div>
+      </div>
+      <div class="pt-intro__section-row is-break">
+        <div class="pt-intro__section-num">⏸</div>
+        <div class="pt-intro__section-name">Break</div>
+        <div class="pt-intro__section-time">10 min</div>
+      </div>
+      <div class="pt-intro__section-row">
+        <div class="pt-intro__section-num">3</div>
+        <div class="pt-intro__section-name">Math — Module 1</div>
+        <div class="pt-intro__section-time">35 min · 8 questions</div>
+      </div>
+      <div class="pt-intro__section-row">
+        <div class="pt-intro__section-num">4</div>
+        <div class="pt-intro__section-name">Math — Module 2</div>
+        <div class="pt-intro__section-time">35 min · 8 questions</div>
+      </div>
+    </div>
+
+    <div class="pt-intro__actions">
+      <button id="pt-start-btn" class="pt-btn--start">Start Practice Test</button>
+      <button id="pt-reset-btn" class="pt-btn--reset">Reset Saved Progress</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     SCREEN: Module Transition
+══════════════════════════════════════════════════════════════ -->
+<div id="pt-transition-screen" class="pt-screen pt-transition">
+  <div class="pt-transition__card">
+    <div class="pt-transition__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    </div>
+    <div class="pt-transition__label">Module Complete</div>
+    <div class="pt-transition__title" id="pt-transition-done">Section Complete</div>
+    <p class="pt-transition__body">
+      This module has been submitted and locked. When you are ready, click Continue to begin the next module.
+    </p>
+    <div class="pt-transition__next-info">
+      <div id="pt-transition-next-label">Next: —</div>
+      <div style="font-size:12px;font-weight:400;margin-top:4px;">
+        <span id="pt-transition-time">—</span> &nbsp;·&nbsp; <span id="pt-transition-qcount">—</span>
+      </div>
+    </div>
+    <button id="pt-continue-btn" class="pt-btn--continue">Continue</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     SCREEN: Test
+══════════════════════════════════════════════════════════════ -->
+<div id="pt-test-screen" class="pt-screen">
+
+  <!-- Header -->
+  <header class="pt-header" role="banner">
+    <div class="pt-header__left">
+      <h1 class="pt-header__section-title" id="pt-section-title">Section 1, Module 1: Reading and Writing</h1>
+      <button class="pt-header__directions-btn" aria-label="Show directions">
+        Directions
+        <svg xmlns="http://www.w3.org/2000/svg" class="pt-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+    </div>
+
+    <div class="pt-header__center">
+      <div id="pt-timer" class="pt-timer" aria-live="polite" aria-label="Time remaining">--:--</div>
+      <button id="pt-hide-timer-btn" class="pt-header__hide-timer-btn">Hide</button>
+    </div>
+
+    <div class="pt-header__right">
+      <div class="pt-header__tools">
+        <button class="pt-header__tool-btn" aria-label="Highlights and Notes">
+          <div class="pt-header__tool-icon-group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="pt-icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="pt-icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          </div>
+          <span>Highlights &amp; Notes</span>
+        </button>
+        <button class="pt-header__tool-btn" aria-label="More options">
+          <svg xmlns="http://www.w3.org/2000/svg" class="pt-icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+          <span>More</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Top dashed divider -->
+  <div class="pt-dashed-line"></div>
+
+  <!-- Content area -->
+  <main id="pt-content" class="pt-content" role="main">
+    <!-- Left pane: passage -->
+    <div id="pt-left-pane" class="pt-left-pane">
+      <div id="pt-passage" class="pt-passage"></div>
+    </div>
+
+    <!-- Resizer handle -->
+    <div id="pt-resizer" class="pt-resizer" role="separator" aria-label="Drag to resize panels">
+      <div class="pt-resizer__handle" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 17 20 12 15 7"></polyline><polyline points="9 7 4 12 9 17"></polyline></svg>
+      </div>
+    </div>
+
+    <!-- Right pane: question -->
+    <div id="pt-right-pane" class="pt-right-pane">
+      <!-- Question header -->
+      <div class="pt-question-header">
+        <div class="pt-question-header__left">
+          <span id="pt-question-num" class="pt-question-num-badge" aria-hidden="true">1</span>
+          <button id="pt-mark-review-btn" class="pt-mark-review-btn" aria-pressed="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+            Mark for Review
+          </button>
+        </div>
+        <div>
+          <button id="pt-elim-mode-btn" class="pt-abc-strike-btn" aria-label="Toggle answer elimination mode" title="Click to toggle elimination mode, then click the circle next to an answer to cross it out">
+            <span>ABC</span>
+            <div class="pt-strike-line"></div>
+          </button>
+        </div>
+      </div>
+
+      <div class="pt-question-divider"></div>
+
+      <!-- Question text -->
+      <div id="pt-question-text" class="pt-question-text"></div>
+
+      <!-- Multiple choice answers -->
+      <div id="pt-choices-container" class="pt-options" role="radiogroup" aria-label="Answer choices"></div>
+
+      <!-- Student-produced response -->
+      <div id="pt-spr-container" class="pt-spr-container pt-hidden">
+        <div class="pt-spr-label">Enter your answer:</div>
+        <input id="pt-spr-input" class="pt-spr-input" type="text" inputmode="numeric" aria-label="Your answer" placeholder="Answer" autocomplete="off">
+      </div>
+    </div>
+  </main>
+
+  <!-- Bottom dashed divider -->
+  <div class="pt-dashed-line"></div>
+
+  <!-- Footer -->
+  <footer class="pt-footer" role="contentinfo">
+    <div class="pt-footer__left">Practice Student</div>
+    <div class="pt-footer__center">
+      <button id="pt-nav-toggle-btn" class="pt-nav-btn" aria-label="Open question navigator" aria-haspopup="dialog">
+        <span id="pt-q-indicator">Question 1 of 8</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="pt-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+      </button>
+    </div>
+    <div class="pt-footer__right">
+      <button id="pt-submit-module-btn" class="pt-submit-btn">Submit Module</button>
+      <button id="pt-back-btn" class="pt-back-btn" aria-label="Previous question">Back</button>
+      <button id="pt-next-btn" class="pt-next-btn" aria-label="Next question">Next</button>
+    </div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     OVERLAY: Question Navigator
+══════════════════════════════════════════════════════════════ -->
+<div id="pt-nav-overlay" class="pt-nav-overlay" role="dialog" aria-modal="true" aria-label="Question Navigator">
+  <div class="pt-nav-panel" id="pt-nav-panel">
+    <div class="pt-nav-panel__header">
+      <div class="pt-nav-panel__title" id="pt-nav-panel-title">Question Navigator</div>
+      <button id="pt-nav-close-btn" class="pt-nav-panel__close" aria-label="Close navigator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <div class="pt-nav-panel__summary">
+      <div class="pt-nav-summary-item">
+        <div class="pt-nav-summary-dot pt-nav-summary-dot--answered"></div>
+        <span id="pt-nav-answered-count">0 answered</span>
+      </div>
+      <div class="pt-nav-summary-item">
+        <div class="pt-nav-summary-dot pt-nav-summary-dot--unanswered"></div>
+        <span id="pt-nav-unanswered-count">0 unanswered</span>
+      </div>
+      <div class="pt-nav-summary-item">
+        <div class="pt-nav-summary-dot pt-nav-summary-dot--marked"></div>
+        <span id="pt-nav-marked-count">0 marked</span>
+      </div>
+    </div>
+
+    <div id="pt-nav-grid" class="pt-nav-grid" role="list"></div>
+
+    <div class="pt-nav-panel__actions">
+      <button id="pt-nav-submit-btn" class="pt-panel-submit-btn">Submit Module</button>
+      <button class="pt-panel-close-btn" id="pt-nav-panel-close2">Go to Question</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     OVERLAY: Submit Module Confirmation
+══════════════════════════════════════════════════════════════ -->
+<div id="pt-submit-overlay" class="pt-modal-overlay" role="dialog" aria-modal="true" aria-label="Submit Module Confirmation">
+  <div class="pt-modal">
+    <div class="pt-modal__title">Submit Module?</div>
+    <div class="pt-modal__warning" id="pt-modal-warning" style="display:none;"></div>
+    <div class="pt-modal__body" id="pt-modal-body">After submitting, you cannot return to this module.</div>
+    <div class="pt-modal__actions">
+      <button id="pt-modal-cancel-btn" class="pt-modal-cancel-btn">Cancel</button>
+      <button id="pt-modal-confirm-btn" class="pt-modal-confirm-btn">Submit Module</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     SCREEN: Break
+══════════════════════════════════════════════════════════════ -->
+<div id="pt-break-screen" class="pt-screen pt-break">
+  <div class="pt-break__card">
+    <div class="pt-break__label">You are on a break</div>
+    <h2 class="pt-break__title">Take a Short Break</h2>
+    <p class="pt-break__sub">
+      The next section will begin automatically when the timer ends.
+      You may end the break early when you are ready to continue.
+    </p>
+
+    <div class="pt-break__timer-wrap">
+      <div class="pt-break__timer-label">Time Remaining</div>
+      <div id="pt-break-timer" class="pt-break__timer" aria-live="polite" aria-label="Break time remaining">10:00</div>
+    </div>
+
+    <p class="pt-break__next">
+      Up next: <strong>Section 2, Module 1: Math</strong>
+    </p>
+
+    <button id="pt-end-break-btn" class="pt-btn--end-break">End Break Early</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     SCREEN: Results
+══════════════════════════════════════════════════════════════ -->
+<div id="pt-results-screen" class="pt-screen pt-results pt-screen--scroll">
+  <div class="pt-results__inner">
+    <div class="pt-results__header">
+      <div class="pt-results__badge">Test Complete</div>
+      <h1 class="pt-results__title">Practice Test Results</h1>
+      <p class="pt-results__sub">Review your answers, correct answers, and explanations below.</p>
+    </div>
+
+    <!-- Score card -->
+    <div class="pt-score-card">
+      <div class="pt-score-total">
+        <div id="pt-score-total" class="pt-score-total__num">0/32</div>
+        <div class="pt-score-total__label">Total Score</div>
+        <div id="pt-score-pct" style="font-size:15px;color:var(--text-muted);margin-top:4px;">0%</div>
+      </div>
+      <div class="pt-score-divider"></div>
+      <div id="pt-score-breakdown" class="pt-score-breakdown"></div>
+    </div>
+
+    <!-- Per-module review -->
+    <div id="pt-review-sections"></div>
+
+    <div class="pt-results__actions">
+      <button id="pt-restart-btn" class="pt-btn--restart">Restart Practice Test</button>
+    </div>
+  </div>
+</div>
+
+<script src="practice-test-data.js"></script>
+<script src="practice-test.js"></script>
+<script>
+  // Wire the extra close button in navigator panel
+  document.getElementById('pt-nav-panel-close2').addEventListener('click', () => {
+    document.getElementById('pt-nav-overlay').classList.remove('is-open');
+  });
+</script>
+</body>
+</html>
